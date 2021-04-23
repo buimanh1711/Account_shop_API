@@ -10,7 +10,7 @@ const Product = new Schema({
   price: { type: Number, default: 0 },
   desc: { type: String, default: '' },
   seller: { type: String, ref: 'account' },
-  category: { type: String, ref: 'category', default: null },
+  category: { type: Schema.Types.ObjectId, ref: 'category' },
   sold: { type: Boolean, default: false },
   slug: { type: String, slug: "name" },
   passed: { type: Boolean, default: false }

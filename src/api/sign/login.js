@@ -12,7 +12,7 @@ const login = (req, res, next) => {
       path: 'bought.product',
       populate: {
         path: 'category',
-        model: 'categories'
+        model: 'category'
       }
     })
     .then(resData => {
@@ -20,7 +20,6 @@ const login = (req, res, next) => {
         const { _id, username, password, role } = resData
         const token = jwt.sign({ _id, username, password, role }, 'mb1o4er')
         const userData = resData
-
         res.json({
           status: true,
           message: 'Đăng nhập thành công!',
